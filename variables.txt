@@ -1,0 +1,3 @@
+0-rangeAgeGroup:5
+1-MinAge:0
+2-MaxAge:101
