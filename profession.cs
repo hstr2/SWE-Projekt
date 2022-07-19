@@ -1,6 +1,10 @@
 class Profession
 {
+<<<<<<< Updated upstream
     List<AgeGroup>? AgeGroups;
+=======
+    List<AgeGroup>? AgeGroups;
+>>>>>>> Stashed changes
 
     public int TotalNumber = 0;
 
