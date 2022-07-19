@@ -1,3 +1,8 @@
-0-rangeAgeGroup:5
-1-MinAge:0
-2-MaxAge:101
+1-rangeAgeGroup:5
+2-MinAge:0
+3-MaxAge:101
+4-Filename for Agegroups total Population:bev-data.csv
+5-Minimum working Age:18
+5-Minimum working Age:65
+7-Profession1:teacher
+8-Filename for Agegroups Profession 1: -

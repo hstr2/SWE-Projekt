@@ -1,13 +1,18 @@
 public class Variables
 {
     
-    public int rangeAgeGroups;
+    public int RangeAgeGroups;
         public int MinAge;
         public int MaxAge;
+        public string FileBevData;
+        public int WorkMinAge;
+        public int WorkMaxAge;
+        public string Profession1;
+        public string FileProf1;
     
-    public int[] ReadVariables(string filename)
+    public string[] ReadVariables(string filename)
     {   
-        int[] vars = new int[4];
+        string[] vars = new string[9];
         string line;
         int count = 1;
         StreamReader sr = new StreamReader(filename);
@@ -15,24 +20,29 @@ public class Variables
         while (!sr.EndOfStream )
         {   line = sr.ReadLine();
             string[] teile = line.Split(':');
-            vars [count] = Convert.ToInt32(teile[1]);   
-            count++; 
-            //line = sr.ReadLine();                   
+            vars [count] = teile[1];   
+            count++;               
         }
         sr.Close();    
 
-        return vars;
-
-        // foreach(var str in vars)
-        // Console.WriteLine($"{str}");
+    //    foreach(var str in vars)
+    //    Console.WriteLine($"{str}");
+        
+        return vars;        
     }
 
-    public void NameVariables(string filename)
+    public void NameVariables(string file)
     {
-        int[] vars = ReadVariables(filename);
-        this.rangeAgeGroups = vars[1];
-        this.MinAge = vars[2];
-        this.MaxAge = vars[3];
+        string[] vars = ReadVariables(file);
+        RangeAgeGroups = Convert.ToInt32(vars[1]);
+        MinAge = Convert.ToInt32(vars[2]);
+        MaxAge = Convert.ToInt32(vars[3]);
+        FileBevData = vars[4];
+        WorkMinAge = Convert.ToInt32(vars[5]);
+        WorkMaxAge = Convert.ToInt32(vars[6]);
+        Profession1 = vars[7];
+        FileProf1= vars[8];
+
     }
 
 }
