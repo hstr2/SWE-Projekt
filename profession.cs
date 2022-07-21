@@ -34,4 +34,15 @@ class Profession
         return $"{Name}:";
     }
 
+    public int GetTotal()
+    {
+        if (TotalNumber != 0) 
+            return TotalNumber;
+        if (AgeGroups != null)
+        {
+            foreach (var age in AgeGroups)
+            TotalNumber += age.Number;
+        }        
+        return TotalNumber;
+    }
 }
