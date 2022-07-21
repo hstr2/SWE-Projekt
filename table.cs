@@ -28,5 +28,38 @@ class Table
     //Anfügen an Tabelle
     Table.Row.Add(row);
     //weitere sind identisch
+        //2.Zeile
+    DataRow row = Table.NewRow();
+    //Wert fehlt
+    row ["year"] = +10;
+    row ["students"];
+    row ["teacher"];
+    row ["needed teacher"];
+    row ["schools"];
+    row ["needed schools"];
+    //Anfügen an Tabelle
+    Table.Row.Add(row);
+        //3.Zeile
+    DataRow row = Table.NewRow();
+    //Wert fehlt
+    row ["year"] = +15;
+    row ["students"];
+    row ["teacher"];
+    row ["needed teacher"];
+    row ["schools"];
+    row ["needed schools"];
+    //Anfügen an Tabelle
+    Table.Row.Add(row);
+        //4.Zeile
+    DataRow row = Table.NewRow();
+    //Wert fehlt
+    row ["year"] = +20;
+    row ["students"];
+    row ["teacher"];
+    row ["needed teacher"];
+    row ["schools"];
+    row ["needed schools"];
+    //Anfügen an Tabelle
+    Table.Row.Add(row);
     }
 }
