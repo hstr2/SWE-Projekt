@@ -1,7 +1,8 @@
 class  DataCoordinator
 {
-    public List<AgeGroup>? AgeGroups; 
-    public List<Profession> ? Professions; 
+    public List<AgeGroup> AgeGroups; 
+    public List<Profession> Professions; 
+    public List<Infrastructure> Infrastructures;
 
     public int TotalPeople;
 
@@ -9,6 +10,7 @@ class  DataCoordinator
     {
         AgeGroups = new List<AgeGroup>();
         Professions = new List<Profession>();
+        Infrastructures = new List<Infrastructure>();
     }
 
     public void CalculateSumAgeGroups()

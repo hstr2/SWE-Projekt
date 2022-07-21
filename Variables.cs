@@ -2,31 +2,38 @@ public class Variables
 {
     
     public int RangeAgeGroups;
-        public int MinAge;
-        public int MaxAge;
-        public string FileBevData;
-        public int WorkMinAge;
-        public int WorkMaxAge;
-        public string Profession1;
-        public string FileProf1;
+    public int MinAge;
+    public int MaxAge;
+    public string? FileBevData;
+    public int WorkMinAge;
+    public int WorkMaxAge;
+    public string? Profession1;
+    public string? FileProf1;
+    public string? Building1;
+    public int NumberBuilding1;
+    public double AverageCapacity1;
     
     public string[] ReadVariables(string filename)
     {   
-        string[] vars = new string[9];
-        string line;
+        string[] vars = new string[13];
+        string? line;
         int count = 1;
-        StreamReader sr = new StreamReader(filename);
-        
-        while (!sr.EndOfStream )
-        {   line = sr.ReadLine();
-            string[] teile = line.Split(':');
-            vars [count] = teile[1];   
-            count++;               
+        try
+        {
+            StreamReader sr = new StreamReader(filename);
+            line = sr.ReadLine();
+            while (line != null )
+            {   string[] teile = line.Split(':');
+                vars [count] = teile[1];   
+                count++;             
+                line = sr.ReadLine();
+            }
+            sr.Close(); 
         }
-        sr.Close();    
-
-    //    foreach(var str in vars)
-    //    Console.WriteLine($"{str}");
+        catch(FileNotFoundException)   
+        {
+            //ausgabe
+        }
         
         return vars;        
     }
@@ -42,7 +49,9 @@ public class Variables
         WorkMaxAge = Convert.ToInt32(vars[6]);
         Profession1 = vars[7];
         FileProf1= vars[8];
-
+        Building1 = vars[9];
+        NumberBuilding1 = Convert.ToInt32(vars[10]);
+        AverageCapacity1 = Convert.ToDouble(vars[11]);
     }
 
 }

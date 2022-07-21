@@ -1,40 +1,37 @@
 class Profession
 {
-<<<<<<< Updated upstream
-    List<AgeGroup>? AgeGroups;
-=======
-    List<AgeGroup>? AgeGroups;
->>>>>>> Stashed changes
+
+    public string Name;
+    public List<AgeGroup>? AgeGroups;
 
     public int TotalNumber = 0;
 
     //Konstruktor
-<<<<<<< Updated upstream
-    Profession(int total)
-=======
-    public Profession(int total)
->>>>>>> Stashed changes
+    public Profession(string profession, int total)
     {
         AgeGroups=null;
         TotalNumber = total;
+        Name = profession;
     }
 
-<<<<<<< Updated upstream
-    Profession (List<AgeGroup> ages) {
-=======
-    public Profession (List<AgeGroup> ages) {
->>>>>>> Stashed changes
+
+    public Profession (string profession, List<AgeGroup> ages) 
+    {
+        Name  = profession;
         AgeGroups = ages;
         foreach (AgeGroup age in AgeGroups) TotalNumber += age.Number;
     }
 
-<<<<<<< Updated upstream
-    Profession (List<AgeGroup> ages, int total) {
-=======
-    public Profession (List<AgeGroup> ages, int total) {
->>>>>>> Stashed changes
+    public Profession (string profession, List<AgeGroup> ages, int total) 
+    {
+        Name = profession;
         AgeGroups = ages;
         TotalNumber = total;
+    }
+
+    public override string ToString()
+    {
+        return $"{Name}:";
     }
 
 }

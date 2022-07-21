@@ -13,9 +13,6 @@ class Programm
             ageGroups.Add(a);                                          
         }
 
-    //    foreach (var group in ageGroups)
-    //    Console.WriteLine(group.ToString());
-
         return ageGroups;
     }
 
@@ -24,26 +21,25 @@ class Programm
     { 
 
     //Read file line by line, create string of information in each line, store strings in list
-        string line;
+        string? line;
         List<string[]> Lines = new List<string[]>();
-        StreamReader sr = new StreamReader(file);
-        line = sr.ReadLine();
-        while (line!= null)
+        try
         {
-            string[] teile = line.Split(';');
-
-            Lines.Add(teile);
+            StreamReader sr = new StreamReader(file);
             line = sr.ReadLine();
-        }
-        sr.Close();
+            while (line!= null)
+            {
+                string[] teile = line.Split(';');
 
-    //test
-        //foreach ( var el in Lines) 
-        //{
-        //    foreach (var str in el)
-        //        Console.Write($"{str}\t");
-        //    Console.Write("\n");
-        //}
+                Lines.Add(teile);
+                line = sr.ReadLine();
+            }
+            sr.Close();
+        }
+        catch(FileNotFoundException)
+        {
+            //Ausgabe realisieren
+        }
 
         return Lines;
     }   
@@ -52,6 +48,7 @@ class Programm
     {
         List<AgeGroup> ageGroups = CreateAgeGroups(minAge, maxAge, ageRange);
         List<string[]> Lines = ReadData(file);
+
         foreach (var el in Lines)
         {
             foreach(var agegroup in ageGroups)
@@ -60,8 +57,8 @@ class Programm
                 int number;
 
                 try{
-                     age = Convert.ToInt32(el[0]);
-                     number = int.Parse(el[1]) + int.Parse(el[2]) ;
+                     age = int.Parse(el[0]);
+                     number = int.Parse(el[1]);
                 }
                 catch(FormatException)
                 {
@@ -90,16 +87,19 @@ class Programm
         Variables var = new Variables();
         var.NameVariables("variables.txt");
 
-//Console.WriteLine($"vars: {var.MaxAge}, {var.MinAge}, {var.rangeAgeGroups}");
+        DataCoordinator schools = new DataCoordinator();
+        if (var.FileBevData!=null)
+        schools.AgeGroups = DataToAgeGroup(var.FileBevData, var.MinAge, var.MaxAge, var.RangeAgeGroups);
 
-        DataCoordinator human = new DataCoordinator();
-        human.AgeGroups = DataToAgeGroup(var.FileBevData, var.MinAge, var.MaxAge, var.RangeAgeGroups);
 
-//test
-    //    foreach (var group in human.AgeGroups)
-    //    Console.WriteLine(group.ToString());
+        if (var.Profession1!= null && var.FileProf1!= null)
+        schools.Professions.Add(DataToProfession(var.Profession1, var.FileProf1, var.WorkMinAge, var.WorkMaxAge, var.RangeAgeGroups));
 
-      human.Professions.Add(DataToProfession(var.Profession1, var.FileProf1, var.WorkMinAge, var.WorkMaxAge, var.RangeAgeGroups));
+        if (var.Building1 != null)
+        {
+            Infrastructure build1 = new Infrastructure(var.Building1, var.NumberBuilding1, var.AverageCapacity1);
+            schools.Infrastructures.Add(build1);
+        }
     }
 }
 
@@ -107,5 +107,6 @@ class Programm
 
 /*TODO
     -exceptions
-    -sinnvolle bezeichnung agegroup
+        -ReadData
+        -Variables.ReadVariables
 */
