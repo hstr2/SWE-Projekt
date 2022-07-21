@@ -83,24 +83,29 @@ class Programm
     }
 
     static void Main(string[] args)
-    {        
+    {   
+        //read variables.txt     
         Variables var = new Variables();
         var.NameVariables("variables.txt");
 
         DataCoordinator schools = new DataCoordinator();
+        
+        //read and store data in agegroups if available
         if (var.FileBevData!=null)
         schools.AgeGroups = DataToAgeGroup(var.FileBevData, var.MinAge, var.MaxAge, var.RangeAgeGroups);
-
-
+        
+        //read and store data for profession1 if available
         if (var.Profession1!= null && var.FileProf1!= null)
         schools.Professions.Add(DataToProfession(var.Profession1, var.FileProf1, var.WorkMinAge, var.WorkMaxAge, var.RangeAgeGroups));
-
+        
+        //read and store data for building type 1 if available
         if (var.Building1 != null)
         {
             Infrastructure build1 = new Infrastructure(var.Building1, var.NumberBuilding1, var.AverageCapacity1);
             schools.Infrastructures.Add(build1);
         }
-    }
+    }   
+       
 }
 
 
@@ -109,4 +114,6 @@ class Programm
     -exceptions
         -ReadData
         -Variables.ReadVariables
+        -variables.NameVariables
+        -main
 */
