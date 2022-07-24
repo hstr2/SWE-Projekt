@@ -4,10 +4,35 @@ namespace calc
 {
     class calculation
     {
-        public void prediction()
+        public void prediction(DataCoordinator lists)
         {
             //1. complete population
             // in 5y: complete poulation until age 80y + agegroup -5 to -1
+
+            //entweder population5 als property von calculation erstellen oder in funktion zurückgeben, 
+            //aktuell kann die variable nirgends außerhalb dieser funktion verwendet werden
+            
+                //var selectedList = from age in lists.AgeGroups
+                //                    where age.Youngest>= -5 && age.Oldest<= 80
+                //                    select age;
+                //foreach (var age in selectedList)
+                //population5 +=  age.Number;  
+
+            // oder 
+
+                //foreach (var agegroup in lists.AgeGroups)
+                //    {
+                //        if (agegroup.Youngest >= -5 && agegroup.Oldest<=80)
+                //        {
+                //            population5 += agegroup.Number;
+                //        }
+                //        else {break;}
+                //    }
+
+            //noch besser: if bzw. where abfrage in abhängigkeit vom prognose-zeitraum angeben, um redundanz zu vermeiden.
+            
+
+
             int population5 = AgeGroup[3]+AgeGroup[4]+AgeGroup[5]+AgeGroup[6]+AgeGroup[7]+AgeGroup[8]+AgeGroup[9]+AgeGroup[10]+AgeGroup[11]+AgeGroup[12]+AgeGroup[13]+AgeGroup[14]+AgeGroup[15]+AgeGroup[16]+AgeGroup[17]+AgeGroup[18]+AgeGroup[19]+AgeGroup[20];
             int population10 = population5+AgeGroup[2]-AgeGroup[20];
             int population15 = population10+AgeGroup[1]-AgeGroup[19];
