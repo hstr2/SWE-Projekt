@@ -19,46 +19,46 @@ class Table
     //1. Zeile erzeugen
     DataRow row = Table.NewRow();
     //Wert fehlt
-    row ["year"];
-    row ["students"];
-    row ["teacher"];
-    row ["needed teacher"];
-    row ["schools"];
-    row ["needed schools"];
+    row ["year"] = +5;
+    row ["students"] = students5;
+    row ["teacher"] = teachers5;
+    row ["needed teacher"] = teachersneeded5;
+    row ["schools"] = schools;
+    row ["needed schools"] = schoolsneeded5;
     //Anfügen an Tabelle
     Table.Row.Add(row);
     //weitere sind identisch
-        //2.Zeile
+    //2.Zeile
     DataRow row = Table.NewRow();
     //Wert fehlt
     row ["year"] = +10;
-    row ["students"];
-    row ["teacher"];
-    row ["needed teacher"];
-    row ["schools"];
-    row ["needed schools"];
+    row ["students"] = students10;
+    row ["teacher"] = teachers10;
+    row ["needed teacher"] = teachersneeded10;
+    row ["schools"] = schools;
+    row ["needed schools"] = schoolsneeded10;
     //Anfügen an Tabelle
     Table.Row.Add(row);
-        //3.Zeile
+    //3.Zeile
     DataRow row = Table.NewRow();
     //Wert fehlt
     row ["year"] = +15;
-    row ["students"];
-    row ["teacher"];
-    row ["needed teacher"];
-    row ["schools"];
-    row ["needed schools"];
+    row ["students"] = students15;
+    row ["teacher"] = teachers15;
+    row ["needed teacher"] = teachersneeded15;
+    row ["schools"] = schools;
+    row ["needed schools"] = schoolsneeded15;
     //Anfügen an Tabelle
     Table.Row.Add(row);
-        //4.Zeile
+    //4.Zeile
     DataRow row = Table.NewRow();
     //Wert fehlt
     row ["year"] = +20;
-    row ["students"];
-    row ["teacher"];
-    row ["needed teacher"];
-    row ["schools"];
-    row ["needed schools"];
+    row ["students"] = students20;
+    row ["teacher"] = teachers20;
+    row ["needed teacher"] = teachersneeded20;
+    row ["schools"] = schools;
+    row ["needed schools"] = schoolsneeded20;
     //Anfügen an Tabelle
     Table.Row.Add(row);
     }
