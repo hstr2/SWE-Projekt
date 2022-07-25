@@ -17,6 +17,13 @@ using System;
         int students10 = 0;
         int students15 = 0;
         int students20 = 0;
+        int teachers = 0;
+        int teachers5 = 0;
+        int teachers10 = 0;
+        int teachers15 = 0;
+        int teachers20 = 0;
+
+
         public void prediction(DataCoordinator lists, Variables var)
         //e.g. intervall = 5, number = 4: 4 predictions in intervall of 5 years -> in 5, 10, 15, 29 years
         {
@@ -96,19 +103,41 @@ using System;
             foreach (var prof in lists.Professions)
                 if (prof.Name == "teacher") //objekt für teacher heraussuchen
                 {
-                    foreach (var age in prof.Agegroups)
-                    //    if (age.Youngest >= x && Oldest <= y) //altersgruppen filtern (x& y konkrete Werte!)
-                        totalTeacher += age.Number;
-                }
+                    //now
+                    selectedList =  from age in prof.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge) && age.Oldest<= (var.WorkMaxAge)
+                            select age;
+                    foreach (var age in selectedList)
+                        teachers +=  age.Number;
 
-            //oder mit LINQ analog zu population5
-            
-            // amountTeachers / totalWorkingPopulation
-            float teacherrate = 5 /populationwork;
-            float teachers5 = teacherrate / populationwork5 ;
-            float teachers10 = teacherrate / populationwork10;
-            float teachers15 = teacherrate / populationwork15;
-            float teachers20 = teacherrate / populationwork20;
+                    //in 5 years
+                    selectedList =  from age in prof.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-5) && age.Oldest<= (var.WorkMaxAge-5)
+                            select age;
+                    foreach (var age in selectedList)
+                        teachers5 +=  age.Number;
+
+                    //in 10 years
+                    selectedList =  from age in prof.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-10) && age.Oldest<= (var.WorkMaxAge-10)
+                            select age;
+                    foreach (var age in selectedList)
+                        teachers10 +=  age.Number;
+
+                    //in 15 years
+                    selectedList =  from age in prof.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-15) && age.Oldest<= (var.WorkMaxAge-15)
+                            select age;
+                    foreach (var age in selectedList)
+                        teachers15 +=  age.Number;
+
+                    //in 20 years
+                    selectedList =  from age in prof.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-20) && age.Oldest<= (var.WorkMaxAge-20)
+                            select age;
+                    foreach (var age in selectedList)
+                        teachers20 +=  age.Number;
+                }
 
 
         //3. prognosis for children/students
