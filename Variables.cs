@@ -33,7 +33,7 @@ public class Variables
         catch(FileNotFoundException)   
         {
             Console.WriteLine("Your File is incorrect. Please check it before trying again.");
-            Environment.Exit();
+            Environment.Exit(0);
         }
         
         return vars;        
