@@ -115,18 +115,5 @@ class Programm
 
         Table table = new Table();
         table.ADONET_dynTabelle1(calcschool);
-
-
     }   
-       
 }
-
-
-
-/*TODO
-    -exceptions
-        -ReadData
-        -Variables.ReadVariables
-        -variables.NameVariables
-        -main
-*/

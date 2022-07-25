@@ -58,7 +58,8 @@ public class Variables
         }
         catch(FormatException)
         {
-            //todo
+            Console.WriteLine("There is a mistake concerning the format of your variables. Please check it before trying again.");
+            Environment.Exit(0);
         }
     }
 
