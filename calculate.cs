@@ -142,23 +142,33 @@ using System;
                 students20 +=  age.Number; 
 
         //4. prognosis infrastructure
-            int schools = NumberBuildings1;
+            int schools = var.NumberBuildings1;
         }
-        public void calculator()
+
+
+        double teachersneeded5 = 0;
+        double teachersneeded10 = 0;
+        double teachersneeded15 = 0;
+        double teachersneeded20 = 0;
+        double schoolsneeded5 = 0;
+        double schoolsneeded10 = 0;
+        double schoolsneeded15 = 0;
+        double schoolsneeded20 = 0;
+        public void calculator(Variables var)
         {
-            //1. needed teachers
+        //1. needed teachers
             // amount of students divided by StudentsPerTeacher
             //optimal StudentsPerTeacher by 20
-            double teachersneeded5 = students5 / 20;
-            double teachersneeded10 = students10 / 20;
-            double teachersneeded15 = students15 / 20;
-            double teachersneeded20 = students20 / 20;
-            //2. needed schools
+            teachersneeded5 = students5 / 20;
+            teachersneeded10 = students10 / 20;
+            teachersneeded15 = students15 / 20;
+            teachersneeded20 = students20 / 20;
+        //2. needed schools
             // amount of students divided by StudentsPerSchool
-            double schoolsneeded5 = students5 / AverageCapacity1;
-            double schoolsneeded10 = students10 / AverageCapacity1;
-            double schoolsneeded15 = students15 / AverageCapacity1;
-            double schoolsneeded20 = students20 / AverageCapacity1;
+            schoolsneeded5 = students5 / var.AverageCapacity1;
+            schoolsneeded10 = students10 / var.AverageCapacity1;
+            schoolsneeded15 = students15 / var.AverageCapacity1;
+            schoolsneeded20 = students20 / var.AverageCapacity1;
         }
     }
 
