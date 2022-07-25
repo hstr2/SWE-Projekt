@@ -1,6 +1,3 @@
-using System;
-
-
     class calculation
     {   
         int population5 = 0;
@@ -17,8 +14,9 @@ using System;
         int students10 = 0;
         int students15 = 0;
         int students20 = 0;
+        
+        
         public void prediction(DataCoordinator lists, Variables var)
-        //e.g. intervall = 5, number = 4: 4 predictions in intervall of 5 years -> in 5, 10, 15, 29 years
         {
         
         //1. complete population
@@ -96,7 +94,7 @@ using System;
             foreach (var prof in lists.Professions)
                 if (prof.Name == "teacher") //objekt für teacher heraussuchen
                 {
-                    foreach (var age in prof.Agegroups)
+                    foreach (var age in prof.AgeGroups)
                     //    if (age.Youngest >= x && Oldest <= y) //altersgruppen filtern (x& y konkrete Werte!)
                         totalTeacher += age.Number;
                 }
@@ -142,7 +140,7 @@ using System;
                 students20 +=  age.Number; 
 
         //4. prognosis infrastructure
-            int schools = var.NumberBuildings1;
+            int schools = var.NumberBuilding1;
         }
 
 
