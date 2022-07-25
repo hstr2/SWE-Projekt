@@ -1,7 +1,6 @@
 using System;
 
-namespace calc
-{
+
     class calculation
     {   
         int population5 = 0;
@@ -13,6 +12,11 @@ namespace calc
         int populationwork10 = 0;
         int populationwork15 = 0;
         int populationwork20 = 0;
+        int totalTeacher = 0;
+        int students5 =  0;
+        int students10 = 0;
+        int students15 = 0;
+        int students20 = 0;
         public void prediction(DataCoordinator lists, Variables var)
         //e.g. intervall = 5, number = 4: 4 predictions in intervall of 5 years -> in 5, 10, 15, 29 years
         {
@@ -46,6 +50,7 @@ namespace calc
                             select age;
             foreach (var age in selectedList)
                 population20 +=  age.Number; 
+
 
         //working population
             //now
@@ -84,33 +89,59 @@ namespace calc
                 populationwork20 +=  age.Number;
 
 
-        //2. prognosis for teachers
-        // amountTeachers / totalWorkingPopulation
 
-            //total number of currently working teachers:
-            //int totalTeacher = 0; //nicht hier, sondern als property oder rückgabevariable
-            ////durchlaufen aller objekte in List<Profession> in Datacoordinator schools
-            //foreach (var prof in schools.Professions)
-            //    if (prof.Name == "teacher") //objekt für teacher heraussuchen
-            //    {
-            //        foreach (var age in prof.Agegroups) //liste agegroups durchlaufen
-            //            if (Youngest >= x && Oldest <= y) //altersgruppen filtern (x& y konkrete Werte!)
-            //            totalTeacher += age.Number;
-            //    }
+    //2. prognosis for teachers
+        //total number of currently working teachers:
+            //durchlaufen aller objekte in List<Profession> in Datacoordinator schools
+            foreach (var prof in lists.Professions)
+                if (prof.Name == "teacher") //objekt für teacher heraussuchen
+                {
+                    foreach (var age in prof.Agegroups)
+                    //    if (age.Youngest >= x && Oldest <= y) //altersgruppen filtern (x& y konkrete Werte!)
+                        totalTeacher += age.Number;
+                }
 
             //oder mit LINQ analog zu population5
-
+            
+            // amountTeachers / totalWorkingPopulation
             float teacherrate = 5 /populationwork;
             float teachers5 = teacherrate / populationwork5 ;
             float teachers10 = teacherrate / populationwork10;
             float teachers15 = teacherrate / populationwork15;
             float teachers20 = teacherrate / populationwork20;
-            //3. prognosis for children/students
-            int students5 = AgeGroup[5]+AgeGroup[6]+AgeGroup[7];
-            int students10 = AgeGroup[5]+AgeGroup[6]+AgeGroup[4];
-            int students15 = AgeGroup[5]+AgeGroup[3]+AgeGroup[4];
-            int students20 = AgeGroup[2]+AgeGroup[3]+AgeGroup[4];
-            //4. prognosis infrastructure
+
+
+        //3. prognosis for children/students
+            
+            //in 5 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (5-5) && age.Oldest <= (19-5) //ageGroups 5-9,10-14, 15-19 in 5 years  
+                            select age;
+            foreach (var age in selectedList)
+                students5 +=  age.Number; 
+            
+            //in 10 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (5-10) && age.Oldest <= (19-10)  
+                            select age;
+            foreach (var age in selectedList)
+                students10 +=  age.Number; 
+
+            //in 15 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (5-15) && age.Oldest <= (19-15)  
+                            select age;
+            foreach (var age in selectedList)
+                students15 +=  age.Number; 
+
+            //in 20 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (5-20) && age.Oldest <= (19-20)  
+                            select age;
+            foreach (var age in selectedList)
+                students20 +=  age.Number; 
+
+        //4. prognosis infrastructure
             int schools = NumberBuildings1;
         }
         public void calculator()
@@ -130,4 +161,4 @@ namespace calc
             double schoolsneeded20 = students20 / AverageCapacity1;
         }
     }
-}
+
