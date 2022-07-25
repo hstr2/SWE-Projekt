@@ -167,7 +167,7 @@
                 students20 +=  age.Number; 
 
         //4. prognosis infrastructure
-            schools = var.NumberBuildings1;
+            schools = var.NumberBuilding1;
         }
 
 
