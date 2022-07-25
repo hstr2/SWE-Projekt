@@ -44,6 +44,20 @@ namespace calc
             int populationwork20 = populationwork15+AgeGroup[4]-Agegroup[17];
             //2. prognosis for teachers
             // amountTeachers / totalWorkingPopulation
+
+            //total number of currently working teachers:
+            //int totalTeacher = 0; //nicht hier, sondern als property oder rückgabevariable
+            ////durchlaufen aller objekte in List<Profession> in Datacoordinator schools
+            //foreach (var prof in schools.Professions)
+            //    if (prof.Name == "teacher") //objekt für teacher heraussuchen
+            //    {
+            //        foreach (var age in prof.Agegroups) //liste agegroups durchlaufen
+            //            if (Youngest >= x && Oldest <= y) //altersgruppen filtern (x& y konkrete Werte!)
+            //            totalTeacher += age.Number;
+            //    }
+
+            //oder mit LINQ analog zu population5
+
             float teacherrate = 5 /populationwork;
             float teachers5 = teacherrate / populationwork5 ;
             float teachers10 = teacherrate / populationwork10;
