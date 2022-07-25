@@ -1,4 +1,3 @@
-
     class Calculation
     {   
         public int population5 = 0;
