@@ -104,6 +104,16 @@ class Programm
             Infrastructure build1 = new Infrastructure(var.Building1, var.NumberBuilding1, var.AverageCapacity1);
             schools.Infrastructures.Add(build1);
         }
+
+
+        Calculation calcschool = new Calculation();
+        calcschool.prediction(schools, var);
+        calcschool.calculator(var);
+
+        Table table = new Table();
+        table.ADONET_dynTabelle1(calcschool);
+
+
     }   
        
 }
