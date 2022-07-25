@@ -21,20 +21,20 @@ Realisiert werden soll diese Prognose zunächst für einen Fall (Schulen oder Al
 Optional wäre auch das Einlesen auch aus anderen Dateiformaten zu ermöglichen.
 
 
-##Benutzungsanleitung Funktionsweise des Programmes
+## Benutzungsanleitung Funktionsweise des Programmes
 
 Da wir ein möglichst individualisierbares Programm schreiben wollten, müssen vom Nutzer zunächst einige Parameter festgelegt werden.
 
 Diese sind in einer *.txt-Datei wie folgt abzulegen:
 
     1-RangeAgeGroup: *ganze Zahl, die Spanne der Altersgruppen angibt*
-    2-MinAge:*ganze Zahl, jüngstes Alter, bei Geburtenvorhersage negativ*
-    3-MaxAge:*ganze Zahl, Alter der ältesten Person(en)*
-    4-Filename for Agegroups total Population:*Name der csv-Datei in welcher die Anzahl der        Personen nach Alter gespeichert ist*
-    5-Minimum working Age:*Mindestalter für arbeitende Personen*
+    2-MinAge: *ganze Zahl, jüngstes Alter, bei Geburtenvorhersage negativ*
+    3-MaxAge: *ganze Zahl, Alter der ältesten Person(en)*
+    4-Filename for Agegroups total Population: *Name der csv-Datei in welcher die Anzahl der        Personen nach Alter gespeichert ist*
+    5-Minimum working Age: *Mindestalter für arbeitende Personen*
     6-Maximum working Age: *Renteneintrittsalter*
-    7-Profession1:*optional:Bezeichnung der zu untersuchenden Berufsgruppe*
-    8-Filename for Agegroups Profession 1:*optional:Name der csv-Datei in welcher die Anzahl der Personen der Berufsgruppe nach Alter gespeichert ist*
+    7-Profession1: *optional:Bezeichnung der zu untersuchenden Berufsgruppe*
+    8-Filename for Agegroups Profession 1: *optional:Name der csv-Datei in welcher die Anzahl der Personen der Berufsgruppe nach Alter gespeichert ist*
     9-Type of buildings1: *zur Berufsgruppe gehörende Gebäudebezeichnung*
     10-Number of Buildings1: *ganze Zahl, Anzahl diese Gebäude*
     11-Average capacity: *Dezimalzahl, durchschnittliche Kapazität der Gebäude(z.B. Schüler pro Schulhaus)*
@@ -48,14 +48,14 @@ Als nächstes werden die zu verarbeitenden Daten als *.csv-Datei eingefügt:
 * Prognosen zu Geburten werden als "negatives Alter" eingetragen (Anzahl der Kinder, die in 5 Jaheren geboren werden haben das Alter "-5")
 * analog zu Berufseinsteigern: Lehrkräfte in Ausbildung werden mit ihrem aktuellen Alter in die Liste eingefügt
 
-#Ausgabe
-*Programm starten
+## Ausgabe
+* Programm starten
 
-#Funktionsweise des Programmes
+## Funktionsweise des Programmes
 
 Unser Programm hat folgenden Aufbau:
 
-*uml
+* uml
 
 Zunächst wird in der "Main"-Funktion in der Klasse "Programm" ein neues Objekt von "Variables" namens "var" erstellt.
 Durch aufruf der "NameVariables"-Funktion in "var" wird die Datei "variables.txt" eingelesen und in dern Properties des Objektes gespeichert.
@@ -75,7 +75,7 @@ Nur wenn eine Gebäude-Bezeichnung in der txt-Datei hinterlegt wurde, wird ein n
 Da hier nur sehr wenige Daten erfasst werden ,werden diese nicht aus einer csv-Datei, sondern direkt aus der txt eingelesen.
 Das neu erstellte Objekt wird automatisch in der Liste für Infrastructure im Coordinator "schools" ergänzt.
 
-*ausgabe
+* ausgabe
 
 Für *.csv-Dateien haben wir uns entschieden, da die Struktur der einzelnen Datensätze nicht sehr komplex ist. xml-Datenbanken sind für diese geringe Menge an Daten nicht unbedingt notwendig und so war für eine erste Version des Programms die Übersichtlichkeit von csv-Dateien ausschlaggebend.
 
@@ -83,7 +83,7 @@ Im Repository liegen zwei csv-Dateien mit Daten zur allgemeinen Bevölkerung und
 Daten für Zukunftsprognosen fehlen hier, da kaum ausreichend konkrete Datensätze zu finden waren.
 Unser Anspruch ist auch nicht, einen konkreten Datensatz zu verarbeiten und ein Ergebnis bereitzustellen, sondern ein Programm zu erstellen, das zur Verarbeitung verschiedener Datensätze geeignet ist.
 
-# Vision
+## Vision
 Aktuell ist nur die Bearbeitung eines Themas möglich.
 Jedoch können ähnliche Aspekte , wie z.B. Altenpflege recht einfach ergänzt werden, die einzulesenden Datensätze haben die selber Struktur, wie die für Schulen.
 Angepasst werden müssen also nur die Berechnungen.
