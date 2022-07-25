@@ -8,62 +8,84 @@ namespace calc
         int population10 = 0;
         int population15 = 0;
         int population20 = 0;
-        public void prediction(DataCoordinator lists)
+        int populationwork = 0;
+        int populationwork5 = 0;
+        int populationwork10 = 0;
+        int populationwork15 = 0;
+        int populationwork20 = 0;
+        public void prediction(DataCoordinator lists, Variables var)
         //e.g. intervall = 5, number = 4: 4 predictions in intervall of 5 years -> in 5, 10, 15, 29 years
         {
-            //1. complete population
-            // in 5y: complete poulation until age 80y + agegroup -5 to -1
         
+        //1. complete population
+        
+            // in 5y: complete poulation until age 80y + agegroup -5 to -1
             var selectedList = from age in lists.AgeGroups
                                where age.Youngest >= -5 && age.Oldest<= 80 //life-expectation at 85 years
                                select age;
             foreach (var age in selectedList)
                 population5 +=  age.Number;             
 
-            // oder 
-                //foreach (var agegroup in lists.AgeGroups)
-                //    {
-                //        if (agegroup.Youngest >= -5 && agegroup.Oldest<=80)
-                //        {
-                //            population5 += agegroup.Number;
-                //        }
-                //        else {break;}
-                //    }        
-
-
+            //in 10 years
             selectedList =  from age in lists.AgeGroups
                             where age.Youngest >= -10 && age.Oldest<= 75 
                             select age;
             foreach (var age in selectedList)
                 population10 +=  age.Number;  
-
-
-
+            
+            //in 15 years
             selectedList =  from age in lists.AgeGroups
                             where age.Youngest >= -15 && age.Oldest<= 70 
                             select age;
             foreach (var age in selectedList)
                 population15 +=  age.Number; 
             
-
-
+            //in 20 years
             selectedList =  from age in lists.AgeGroups
                             where age.Youngest >= -20 && age.Oldest<= 65 
                             select age;
             foreach (var age in selectedList)
                 population20 +=  age.Number; 
 
+        //working population
+            //now
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= var.WorkMinAge && age.Oldest<= var.WorkMaxAge
+                            select age;
+            foreach (var age in selectedList)
+                populationwork +=  age.Number;
+            
+            //in 5 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-5) && age.Oldest<= (var.WorkMaxAge-5)
+                            select age;
+            foreach (var age in selectedList)
+                populationwork5 +=  age.Number;
+
+            //in 10 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-10) && age.Oldest<= (var.WorkMaxAge-10)
+                            select age;
+            foreach (var age in selectedList)
+                populationwork10 +=  age.Number;
+            
+            //in 15 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-15) && age.Oldest<= (var.WorkMaxAge-15)
+                            select age;
+            foreach (var age in selectedList)
+                populationwork15 +=  age.Number;
+            
+            //in 20 years
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= (var.WorkMinAge-20) && age.Oldest<= (var.WorkMaxAge-20)
+                            select age;
+            foreach (var age in selectedList)
+                populationwork20 +=  age.Number;
 
 
-            int populationwork = population5-AgeGroup[3]-AgeGroup[4]-AgeGroup[5]-AgeGroup[6]-AgeGroup[7]+AgeGroup[21];
-            int populationwork5 = populationwork+Agegroup[7]-AgeGroup[20];
-            int populationwork10 = populationwork5+AgeGroup[6]-Agegroup[19];
-            int populationwork15 = populationwork10+AgeGroup[5]-Agegroup[18];
-            int populationwork20 = populationwork15+AgeGroup[4]-Agegroup[17];
-
-
-            //2. prognosis for teachers
-            // amountTeachers / totalWorkingPopulation
+        //2. prognosis for teachers
+        // amountTeachers / totalWorkingPopulation
 
             //total number of currently working teachers:
             //int totalTeacher = 0; //nicht hier, sondern als property oder rückgabevariable
