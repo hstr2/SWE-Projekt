@@ -3,7 +3,7 @@
 3-MaxAge:101
 4-Filename for Agegroups total Population:bev-data.csv
 5-Minimum working Age:18
-5-Maximum working Age:65
+6-Maximum working Age:65
 7-Profession1:teacher
 8-Filename for Agegroups Profession 1:lehrkraefte-de-2021.csv
 9-Type of buildings1: schools

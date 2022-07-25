@@ -82,6 +82,12 @@ class Programm
         return prof;
     }
 
+
+
+
+
+
+
     static void Main(string[] args)
     {   
         //read variables.txt     
