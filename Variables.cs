@@ -32,8 +32,8 @@ public class Variables
         }
         catch(FileNotFoundException)   
         {
-            //ausgabe Console.WriteLine("The File is incorrect or not found. Please check your File before doing it again.");
-            //Environment.Exit();
+            Console.WriteLine("Your File is incorrect. Please check it before trying again.");
+            Environment.Exit();
         }
         
         return vars;        
@@ -41,18 +41,25 @@ public class Variables
 
     public void NameVariables(string file)
     {
-        string[] vars = ReadVariables(file);
-        RangeAgeGroups = Convert.ToInt32(vars[1]);
-        MinAge = Convert.ToInt32(vars[2]);
-        MaxAge = Convert.ToInt32(vars[3]);
-        FileBevData = vars[4];
-        WorkMinAge = Convert.ToInt32(vars[5]);
-        WorkMaxAge = Convert.ToInt32(vars[6]);
-        Profession1 = vars[7];
-        FileProf1= vars[8];
-        Building1 = vars[9];
-        NumberBuilding1 = Convert.ToInt32(vars[10]);
-        AverageCapacity1 = Convert.ToDouble(vars[11]);
+        try
+        {
+            string[] vars = ReadVariables(file);
+            RangeAgeGroups = Convert.ToInt32(vars[1]);
+            MinAge = Convert.ToInt32(vars[2]);
+            MaxAge = Convert.ToInt32(vars[3]);
+            FileBevData = vars[4];
+            WorkMinAge = Convert.ToInt32(vars[5]);
+            WorkMaxAge = Convert.ToInt32(vars[6]);
+            Profession1 = vars[7];
+            FileProf1= vars[8];
+            Building1 = vars[9];
+            NumberBuilding1 = Convert.ToInt32(vars[10]);
+            AverageCapacity1 = Convert.ToDouble(vars[11]);
+        }
+        catch(FormatException)
+        {
+            //todo
+        }
     }
 
 }
