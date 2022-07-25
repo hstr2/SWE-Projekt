@@ -4,28 +4,23 @@ namespace calc
 {
     class calculation
     {   
-        public int[] prediction(DataCoordinator lists, int interval, int number)
+        int population5 = 0;
+        int population10 = 0;
+        int population15 = 0;
+        int population20 = 0;
+        public void prediction(DataCoordinator lists)
         //e.g. intervall = 5, number = 4: 4 predictions in intervall of 5 years -> in 5, 10, 15, 29 years
         {
             //1. complete population
             // in 5y: complete poulation until age 80y + agegroup -5 to -1
-            int[] predictions = new int[number]; //array to store predicitons, length= number of predictions
-            int count = 0;
-            for (int i = interval; i <= interval*number; i+= interval) //prediction in i years 
-            {
-                int totalPopulation = 0;
-                var selectedList = from age in lists.AgeGroups
-                                   where age.Youngest >= (-i) && age.Oldest<= (85-i) //life-expectation at 85 years
-                                   select age;
-                foreach (var age in selectedList)
-                totalPopulation +=  age.Number;  
-                predictions[count] = totalPopulation;
-                count++;
-            }
-            return predictions;
+        
+            var selectedList = from age in lists.AgeGroups
+                               where age.Youngest >= -5 && age.Oldest<= 80 //life-expectation at 85 years
+                               select age;
+            foreach (var age in selectedList)
+                population5 +=  age.Number;             
 
             // oder 
-
                 //foreach (var agegroup in lists.AgeGroups)
                 //    {
                 //        if (agegroup.Youngest >= -5 && agegroup.Oldest<=80)
@@ -36,10 +31,28 @@ namespace calc
                 //    }        
 
 
-            //int population5 = AgeGroup[3]+AgeGroup[4]+AgeGroup[5]+AgeGroup[6]+AgeGroup[7]+AgeGroup[8]+AgeGroup[9]+AgeGroup[10]+AgeGroup[11]+AgeGroup[12]+AgeGroup[13]+AgeGroup[14]+AgeGroup[15]+AgeGroup[16]+AgeGroup[17]+AgeGroup[18]+AgeGroup[19]+AgeGroup[20];
-            //int population10 = population5+AgeGroup[2]-AgeGroup[20];
-            //int population15 = population10+AgeGroup[1]-AgeGroup[19];
-            //int population20 = population15+AgeGroup[0]-AgeGroup[18];
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= -10 && age.Oldest<= 75 
+                            select age;
+            foreach (var age in selectedList)
+                population10 +=  age.Number;  
+
+
+
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= -15 && age.Oldest<= 70 
+                            select age;
+            foreach (var age in selectedList)
+                population15 +=  age.Number; 
+            
+
+
+            selectedList =  from age in lists.AgeGroups
+                            where age.Youngest >= -20 && age.Oldest<= 65 
+                            select age;
+            foreach (var age in selectedList)
+                population20 +=  age.Number; 
+
 
 
             int populationwork = population5-AgeGroup[3]-AgeGroup[4]-AgeGroup[5]-AgeGroup[6]-AgeGroup[7]+AgeGroup[21];
