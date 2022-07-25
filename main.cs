@@ -38,7 +38,8 @@ class Programm
         }
         catch(FileNotFoundException)
         {
-            //Ausgabe realisieren
+            Console.WriteLine("Your File is incorrect. Please check it before trying it again.");
+            Environment.Exit();
         }
 
         return Lines;
