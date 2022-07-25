@@ -3,20 +3,26 @@ using System;
 namespace calc
 {
     class calculation
-    {
-        public void prediction(DataCoordinator lists)
+    {   
+        public int[] prediction(DataCoordinator lists, int interval, int number)
+        //e.g. intervall = 5, number = 4: 4 predictions in intervall of 5 years -> in 5, 10, 15, 29 years
         {
             //1. complete population
             // in 5y: complete poulation until age 80y + agegroup -5 to -1
-
-            //entweder population5 als property von calculation erstellen oder in funktion zurückgeben, 
-            //aktuell kann die variable nirgends außerhalb dieser funktion verwendet werden
-            
-                //var selectedList = from age in lists.AgeGroups
-                //                    where age.Youngest>= -5 && age.Oldest<= 80
-                //                    select age;
-                //foreach (var age in selectedList)
-                //population5 +=  age.Number;  
+            int[] predictions = new int[number]; //array to store predicitons, length= number of predictions
+            int count = 0;
+            for (int i = interval; i <= interval*number; i+= interval) //prediction in i years 
+            {
+                int totalPopulation = 0;
+                var selectedList = from age in lists.AgeGroups
+                                   where age.Youngest >= (-i) && age.Oldest<= (85-i) //life-expectation at 85 years
+                                   select age;
+                foreach (var age in selectedList)
+                totalPopulation +=  age.Number;  
+                predictions[count] = totalPopulation;
+                count++;
+            }
+            return predictions;
 
             // oder 
 
@@ -27,21 +33,22 @@ namespace calc
                 //            population5 += agegroup.Number;
                 //        }
                 //        else {break;}
-                //    }
-
-            //noch besser: if bzw. where abfrage in abhängigkeit vom prognose-zeitraum angeben, um redundanz zu vermeiden.
-            
+                //    }        
 
 
-            int population5 = AgeGroup[3]+AgeGroup[4]+AgeGroup[5]+AgeGroup[6]+AgeGroup[7]+AgeGroup[8]+AgeGroup[9]+AgeGroup[10]+AgeGroup[11]+AgeGroup[12]+AgeGroup[13]+AgeGroup[14]+AgeGroup[15]+AgeGroup[16]+AgeGroup[17]+AgeGroup[18]+AgeGroup[19]+AgeGroup[20];
-            int population10 = population5+AgeGroup[2]-AgeGroup[20];
-            int population15 = population10+AgeGroup[1]-AgeGroup[19];
-            int population20 = population15+AgeGroup[0]-AgeGroup[18];
+            //int population5 = AgeGroup[3]+AgeGroup[4]+AgeGroup[5]+AgeGroup[6]+AgeGroup[7]+AgeGroup[8]+AgeGroup[9]+AgeGroup[10]+AgeGroup[11]+AgeGroup[12]+AgeGroup[13]+AgeGroup[14]+AgeGroup[15]+AgeGroup[16]+AgeGroup[17]+AgeGroup[18]+AgeGroup[19]+AgeGroup[20];
+            //int population10 = population5+AgeGroup[2]-AgeGroup[20];
+            //int population15 = population10+AgeGroup[1]-AgeGroup[19];
+            //int population20 = population15+AgeGroup[0]-AgeGroup[18];
+
+
             int populationwork = population5-AgeGroup[3]-AgeGroup[4]-AgeGroup[5]-AgeGroup[6]-AgeGroup[7]+AgeGroup[21];
             int populationwork5 = populationwork+Agegroup[7]-AgeGroup[20];
             int populationwork10 = populationwork5+AgeGroup[6]-Agegroup[19];
             int populationwork15 = populationwork10+AgeGroup[5]-Agegroup[18];
             int populationwork20 = populationwork15+AgeGroup[4]-Agegroup[17];
+
+
             //2. prognosis for teachers
             // amountTeachers / totalWorkingPopulation
 
