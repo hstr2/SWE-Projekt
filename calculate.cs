@@ -1,31 +1,28 @@
-using System;
 
-
-    class calculation
+    class Calculation
     {   
-        int population5 = 0;
-        int population10 = 0;
-        int population15 = 0;
-        int population20 = 0;
-        int populationwork = 0;
-        int populationwork5 = 0;
-        int populationwork10 = 0;
-        int populationwork15 = 0;
-        int populationwork20 = 0;
-        int totalTeacher = 0;
-        int students5 =  0;
-        int students10 = 0;
-        int students15 = 0;
-        int students20 = 0;
-        int teachers = 0;
-        int teachers5 = 0;
-        int teachers10 = 0;
-        int teachers15 = 0;
-        int teachers20 = 0;
-
+        public int population5 = 0;
+        public int population10 = 0;
+        public int population15 = 0;
+        public int population20 = 0;
+        public int populationwork = 0;
+        public int populationwork5 = 0;
+        public int populationwork10 = 0;
+        public int populationwork15 = 0;
+        public int populationwork20 = 0;
+        public int totalTeacher = 0;
+        public int students5 =  0;
+        public int students10 = 0;
+        public int students15 = 0;
+        public int students20 = 0;
+        public int teachers = 0;
+        public int teachers5 = 0;
+        public int teachers10 = 0;
+        public int teachers15 = 0;
+        public int teachers20 = 0;
+        public int schools;
 
         public void prediction(DataCoordinator lists, Variables var)
-        //e.g. intervall = 5, number = 4: 4 predictions in intervall of 5 years -> in 5, 10, 15, 29 years
         {
         
         //1. complete population
@@ -171,18 +168,18 @@ using System;
                 students20 +=  age.Number; 
 
         //4. prognosis infrastructure
-            int schools = var.NumberBuildings1;
+            schools = var.NumberBuildings1;
         }
 
 
-        double teachersneeded5 = 0;
-        double teachersneeded10 = 0;
-        double teachersneeded15 = 0;
-        double teachersneeded20 = 0;
-        double schoolsneeded5 = 0;
-        double schoolsneeded10 = 0;
-        double schoolsneeded15 = 0;
-        double schoolsneeded20 = 0;
+        public double teachersneeded5 = 0;
+        public double teachersneeded10 = 0;
+        public double teachersneeded15 = 0;
+        public double teachersneeded20 = 0;
+        public double schoolsneeded5 = 0;
+        public double schoolsneeded10 = 0;
+        public double schoolsneeded15 = 0;
+        public double schoolsneeded20 = 0;
         public void calculator(Variables var)
         {
         //1. needed teachers
