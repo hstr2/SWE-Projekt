@@ -67,7 +67,8 @@ Nun können Sie den Code ausführen lassen und erhalten eine Tabelle mit den Pro
 
 Unser Programm hat folgenden Aufbau:
 
-* uml
+![UML-Diagramm](
+https://www.plantuml.com/plantuml/png/ZLDDQzmm4BthL_YOXUImLrEQZorT2aqQagMbb1ucrcGZAckCFhODfV-zevLahOqBlHXvFjwRzpIwSXwi3xqMejFWN7DlQM-X5x_5nY9ulDxZrb8Ot9ao_hmfdrNBZLvrpM3LWSkQZyfvyO0Wtu67C-UjCljLs-Igc7sJWj--lnMnPaS5EbTNyCfGUdC73_UCpYaoOyzohxW5bMkOS8Gwa9BYJv4QCJT4LYe3dYnB7iMsYRNobSW7yso1SKFdWyKItP47VOyqQ6mZlvX1dwt41dGND7Xy37trTDNEPYef7kOh1RD7vnFY9ot7yrtedz2cysXYrRwZnwDmHX_2asRTT41hbSJiLgMh0fdm3dfiSyNCYSiayPHuuIuY-rAS4VwTEF_FcRVeZpDm1NTK2TCROHcxrm7RqfKclWbAI_vrsJE6XZrkO81E-TUsaSISEBlSwLgcabNb_GnM0OSSKpu0tzJrjbWMEMwLOG_J4NwLutkbyGOFSJsoqvVY2zaVjJhzrexgsdhiY2WnNYD5O8rCXQyNXQ_RfAgAAbkQ5cAW8VySH_48tGlQfC_v8D7u_DEz46atgJA84kL9-ZGoM9IgYyZyDBfC6jz97MKNpUKXebV7ytJDEjAXDwxigwMVhkp5xF4rT75HtzLISdhlIoMd3wKUfyZLkvH80iGL6Xbw_HS0)
 
 Zunächst wird in der "Main"-Funktion in der Klasse "Programm" ein neues Objekt von "Variables" namens "var" erstellt.
 Durch aufruf der "NameVariables"-Funktion in "var" wird die Datei "variables.txt" eingelesen und in dern Properties des Objektes gespeichert.
