@@ -42,14 +42,26 @@ Diese sind in einer *.txt-Datei wie folgt abzulegen:
 Hierbei sind ganze Zahlen ohne Tausender-Trennzeichen und Dezimalzahlen mit Punkt getrennt zu schreiben.
 
 Als nächstes werden die zu verarbeitenden Daten als *.csv-Datei eingefügt:
-* in der ersten Spate steht das Alter
+* in der ersten Spalte steht das Alter
 * die zweite Spalte enthät die Anzahl der Personen im jeweiligen Alter
 * Spalten werden mit Semikolon getrennt
 * Prognosen zu Geburten werden als "negatives Alter" eingetragen (Anzahl der Kinder, die in 5 Jaheren geboren werden haben das Alter "-5")
 * analog zu Berufseinsteigern: Lehrkräfte in Ausbildung werden mit ihrem aktuellen Alter in die Liste eingefügt
 
 ## Ausgabe
-* Programm starten
+Um das Programm zum Laufen zu bringen nutzen Sie bitte Visual Studio Code.
+Sie werden, wenn Ihre Datei keine Fehler aufweist, eine XML-Datei namens "results.XML" erhalten. Um nun die Ausgabe zu erhalten, benötigen Sie Jupyter Notebooks mit C#.
+Sie installieren also folgende Dinge:
+* Jupyter Notebooks
+* .NET 3.1 SDK
+* C# für Jupyter Notebooks
+
+Sie können diese mithilfe des folgenden Links installieren (https://devblogs.microsoft.com/dotnet/net-interactive-is-here-net-notebooks-preview-2/).
+
+Auf Jupyter Notebooks angekommen müssen Sie die Datei "Table.ipynb" hochladen sowie die "results.XML"-Datei.
+Nun klicken Sie auf die Datei "Table.ipynb" und es öffnet sich das Notebook.
+
+Nun können Sie den Code ausführen lassen und erhalten eine Tabelle mit den Prognosen.
 
 ## Funktionsweise des Programmes
 
@@ -75,7 +87,7 @@ Nur wenn eine Gebäude-Bezeichnung in der txt-Datei hinterlegt wurde, wird ein n
 Da hier nur sehr wenige Daten erfasst werden ,werden diese nicht aus einer csv-Datei, sondern direkt aus der txt eingelesen.
 Das neu erstellte Objekt wird automatisch in der Liste für Infrastructure im Coordinator "schools" ergänzt.
 
-* ausgabe
+Das Programm hinterlegt einen XML-Datei, die als Datensatz dient für die .ipynb-Datei, die diese Daten dann tabellarich darstellt.
 
 Für *.csv-Dateien haben wir uns entschieden, da die Struktur der einzelnen Datensätze nicht sehr komplex ist. xml-Datenbanken sind für diese geringe Menge an Daten nicht unbedingt notwendig und so war für eine erste Version des Programms die Übersichtlichkeit von csv-Dateien ausschlaggebend.
 
