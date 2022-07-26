@@ -7,7 +7,7 @@ class Table
     public void ADONET_dynTabelle1(Calculation calc)
     {
         
-    DataTable Table = new DataTable();
+    DataTable Table = new DataTable{TableName="schools"};
     //Spalten erzeugen
     Table.Columns.Add("year", System.Type.GetType("System.Int32"));
     Table.Columns.Add("students", System.Type.GetType("System.Int32"));
@@ -61,5 +61,7 @@ class Table
     row4 ["needed schools"] = calc.schoolsneeded20;
     //Anfügen an Tabelle
     Table.Rows.Add(row4);
+
+    Table.WriteXml("result.xml");
     }
 }
