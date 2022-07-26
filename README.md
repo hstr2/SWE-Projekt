@@ -88,7 +88,8 @@ Nur wenn eine Gebäude-Bezeichnung in der txt-Datei hinterlegt wurde, wird ein n
 Da hier nur sehr wenige Daten erfasst werden ,werden diese nicht aus einer csv-Datei, sondern direkt aus der txt eingelesen.
 Das neu erstellte Objekt wird automatisch in der Liste für Infrastructure im Coordinator "schools" ergänzt.
 
-Das Programm hinterlegt einen XML-Datei, die als Datensatz dient für die .ipynb-Datei, die diese Daten dann tabellarich darstellt.
+Die Datei calculate.cs nimmt diese Werte auf und errechnet die Prognosen für Schüler, Lehrer und Schulen für alle 5 Jahre.
+Das Programm hinterlegt einen XML-Datei, die als Datensatz dient für die .ipynb-Datei, die diese Daten dann tabellarisch darstellt.
 
 Für *.csv-Dateien haben wir uns entschieden, da die Struktur der einzelnen Datensätze nicht sehr komplex ist. xml-Datenbanken sind für diese geringe Menge an Daten nicht unbedingt notwendig und so war für eine erste Version des Programms die Übersichtlichkeit von csv-Dateien ausschlaggebend.
 
