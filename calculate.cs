@@ -1,26 +1,21 @@
-    class Calculation
+    class calculation
     {   
-        public int population5 = 0;
-        public int population10 = 0;
-        public int population15 = 0;
-        public int population20 = 0;
-        public int populationwork = 0;
-        public int populationwork5 = 0;
-        public int populationwork10 = 0;
-        public int populationwork15 = 0;
-        public int populationwork20 = 0;
-        public int totalTeacher = 0;
-        public int students5 =  0;
-        public int students10 = 0;
-        public int students15 = 0;
-        public int students20 = 0;
-        public int teachers = 0;
-        public int teachers5 = 0;
-        public int teachers10 = 0;
-        public int teachers15 = 0;
-        public int teachers20 = 0;
-        public int schools;
-
+        int population5 = 0;
+        int population10 = 0;
+        int population15 = 0;
+        int population20 = 0;
+        int populationwork = 0;
+        int populationwork5 = 0;
+        int populationwork10 = 0;
+        int populationwork15 = 0;
+        int populationwork20 = 0;
+        int totalTeacher = 0;
+        int students5 =  0;
+        int students10 = 0;
+        int students15 = 0;
+        int students20 = 0;
+        
+        
         public void prediction(DataCoordinator lists, Variables var)
         {
         
@@ -99,41 +94,19 @@
             foreach (var prof in lists.Professions)
                 if (prof.Name == "teacher") //objekt für teacher heraussuchen
                 {
-                    //now
-                    selectedList =  from age in prof.AgeGroups
-                            where age.Youngest >= (var.WorkMinAge) && age.Oldest<= (var.WorkMaxAge)
-                            select age;
-                    foreach (var age in selectedList)
-                        teachers +=  age.Number;
-
-                    //in 5 years
-                    selectedList =  from age in prof.AgeGroups
-                            where age.Youngest >= (var.WorkMinAge-5) && age.Oldest<= (var.WorkMaxAge-5)
-                            select age;
-                    foreach (var age in selectedList)
-                        teachers5 +=  age.Number;
-
-                    //in 10 years
-                    selectedList =  from age in prof.AgeGroups
-                            where age.Youngest >= (var.WorkMinAge-10) && age.Oldest<= (var.WorkMaxAge-10)
-                            select age;
-                    foreach (var age in selectedList)
-                        teachers10 +=  age.Number;
-
-                    //in 15 years
-                    selectedList =  from age in prof.AgeGroups
-                            where age.Youngest >= (var.WorkMinAge-15) && age.Oldest<= (var.WorkMaxAge-15)
-                            select age;
-                    foreach (var age in selectedList)
-                        teachers15 +=  age.Number;
-
-                    //in 20 years
-                    selectedList =  from age in prof.AgeGroups
-                            where age.Youngest >= (var.WorkMinAge-20) && age.Oldest<= (var.WorkMaxAge-20)
-                            select age;
-                    foreach (var age in selectedList)
-                        teachers20 +=  age.Number;
+                    foreach (var age in prof.AgeGroups)
+                    //    if (age.Youngest >= x && Oldest <= y) //altersgruppen filtern (x& y konkrete Werte!)
+                        totalTeacher += age.Number;
                 }
+
+            //oder mit LINQ analog zu population5
+            
+            // amountTeachers / totalWorkingPopulation
+            float teacherrate = 5 /populationwork;
+            float teachers5 = teacherrate / populationwork5 ;
+            float teachers10 = teacherrate / populationwork10;
+            float teachers15 = teacherrate / populationwork15;
+            float teachers20 = teacherrate / populationwork20;
 
 
         //3. prognosis for children/students
@@ -167,18 +140,18 @@
                 students20 +=  age.Number; 
 
         //4. prognosis infrastructure
-            schools = var.NumberBuildings1;
+            int schools = var.NumberBuilding1;
         }
 
 
-        public double teachersneeded5 = 0;
-        public double teachersneeded10 = 0;
-        public double teachersneeded15 = 0;
-        public double teachersneeded20 = 0;
-        public double schoolsneeded5 = 0;
-        public double schoolsneeded10 = 0;
-        public double schoolsneeded15 = 0;
-        public double schoolsneeded20 = 0;
+        double teachersneeded5 = 0;
+        double teachersneeded10 = 0;
+        double teachersneeded15 = 0;
+        double teachersneeded20 = 0;
+        double schoolsneeded5 = 0;
+        double schoolsneeded10 = 0;
+        double schoolsneeded15 = 0;
+        double schoolsneeded20 = 0;
         public void calculator(Variables var)
         {
         //1. needed teachers
